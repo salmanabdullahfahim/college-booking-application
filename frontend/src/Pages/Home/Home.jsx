@@ -1,5 +1,11 @@
+import PhotoGallery from "../../Components/PhotoGallery/PhotoGallery";
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <PhotoGallery />
+    </div>
+  );
 };
 
 export default Home;
