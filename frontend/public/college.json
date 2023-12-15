@@ -2,11 +2,8 @@
   {
     "id": 1,
     "name": "University of Washington",
-    "image": "https://example.com/tech_innovators_image.jpg",
-    "admission_dates": {
-      "fall": "2023-09-01",
-      "spring": "2024-02-01"
-    },
+    "image": "https://marcomm.wustl.edu/app/uploads/2019/03/brookings-winter.jpg",
+    "admission_dates": "2024-02-01",
     "events": [
       {
         "name": "Tech Expo",
@@ -18,16 +15,13 @@
       }
     ],
     "research_history": "University of Texas has a rich history of contributions to computer science, artificial intelligence, and cybersecurity.",
-    "sports_field": "The college features a cutting-edge sports complex with facilities for e-sports, traditional sports, and fitness programs."
+    "sports_field": "Cricket, Football"
   },
   {
     "id": 2,
     "name": "Tech Innovators Institute",
-    "image": "https://example.com/tech_innovators_image.jpg",
-    "admission_dates": {
-      "fall": "2023-09-01",
-      "spring": "2024-02-01"
-    },
+    "image": "https://media.istockphoto.com/id/1164035317/photo/cherry-blossoms-in-the-quad-university-of-washington-campus.webp?b=1&s=170667a&w=0&k=20&c=VB7OLhox7-jSRBGydzXFip00N7BycDVDHR3HSdDU448=",
+    "admission_dates": "2024-02-01",
     "events": [
       {
         "name": "Tech Expo",
@@ -39,16 +33,13 @@
       }
     ],
     "research_history": "Tech Innovators Institute has a rich history of contributions to computer science, artificial intelligence, and cybersecurity.",
-    "sports_field": "The college features a cutting-edge sports complex with facilities for e-sports, traditional sports, and fitness programs."
+    "sports_field": "Baseball, Hockey"
   },
   {
     "id": 3,
     "name": "Arizona state University",
-    "image": "https://example.com/tech_innovators_image.jpg",
-    "admission_dates": {
-      "fall": "2023-09-01",
-      "spring": "2024-02-01"
-    },
+    "image": "https://galined.com/wp-content/uploads/2022/04/ASU.jpg",
+    "admission_dates": "2024-02-01",
     "events": [
       {
         "name": "Tech Expo",
@@ -60,7 +51,7 @@
       }
     ],
     "research_history": "Arizona State University has a rich history of contributions to computer science, artificial intelligence, and cybersecurity.",
-    "sports_field": "The college features a cutting-edge sports complex with facilities for e-sports, traditional sports, and fitness programs."
+    "sports_field": "Basketball, Handball"
   },
   {
     "name": "Tech Innovators Institute",
@@ -80,6 +71,6 @@
       }
     ],
     "research_history": "Tech Innovators Institute has a rich history of contributions to computer science, artificial intelligence, and cybersecurity.",
-    "sports_field": "The college features a cutting-edge sports complex with facilities for e-sports, traditional sports, and fitness programs."
+    "sports_field": "Kabddi, Taekwando"
   }
 ]
