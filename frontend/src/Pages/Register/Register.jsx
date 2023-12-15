@@ -15,7 +15,7 @@ export const Register = () => {
               <Link
                 to="/Login"
                 title=""
-                className="font-medium text-black transition-all duration-200 hover:underline"
+                className="font-bold text-black transition-all duration-200 hover:underline"
               >
                 Sign In
               </Link>
