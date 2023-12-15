@@ -12,6 +12,26 @@ export const Login = () => {
 
   const from = location.state?.from.pathname || "/";
 
+  const handleLogin = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    login(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        toast.success("Login Successful");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error(error.message);
+      });
+  };
+
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
@@ -42,7 +62,7 @@ export const Login = () => {
                 Create a free account
               </Link>
             </p>
-            <form action="#" method="POST" className="mt-8">
+            <form onSubmit={handleLogin} className="mt-8">
               <div className="space-y-5">
                 <div>
                   <label
@@ -57,6 +77,7 @@ export const Login = () => {
                       className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       type="email"
                       placeholder="Email"
+                      name="email"
                     ></input>
                   </div>
                 </div>
@@ -83,15 +104,16 @@ export const Login = () => {
                       className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                       type="password"
                       placeholder="Password"
+                      name="password"
                     ></input>
                   </div>
                 </div>
                 <div>
                   <button
-                    type="button"
+                    type="submit"
                     className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                   >
-                    Get started <ArrowRight className="ml-2" size={16} />
+                    Sign In <ArrowRight className="ml-2" size={16} />
                   </button>
                 </div>
               </div>
