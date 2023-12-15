@@ -1,7 +1,29 @@
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 export const Login = () => {
+  const { login, signInWithGoogle } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from.pathname || "/";
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        toast.success("Login Successful");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
   return (
     <section className="my-12">
       <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -76,6 +98,7 @@ export const Login = () => {
             </form>
             <div className="mt-3 space-y-3">
               <button
+                onClick={handleGoogleSignIn}
                 type="button"
                 className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
               >
