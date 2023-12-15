@@ -1,0 +1,85 @@
+[
+  {
+    "id": 1,
+    "name": "University of Washington",
+    "image": "https://example.com/tech_innovators_image.jpg",
+    "admission_dates": {
+      "fall": "2023-09-01",
+      "spring": "2024-02-01"
+    },
+    "events": [
+      {
+        "name": "Tech Expo",
+        "date": "2023-10-10"
+      },
+      {
+        "name": "Hackathon",
+        "date": "2023-12-05"
+      }
+    ],
+    "research_history": "University of Texas has a rich history of contributions to computer science, artificial intelligence, and cybersecurity.",
+    "sports_field": "The college features a cutting-edge sports complex with facilities for e-sports, traditional sports, and fitness programs."
+  },
+  {
+    "id": 2,
+    "name": "Tech Innovators Institute",
+    "image": "https://example.com/tech_innovators_image.jpg",
+    "admission_dates": {
+      "fall": "2023-09-01",
+      "spring": "2024-02-01"
+    },
+    "events": [
+      {
+        "name": "Tech Expo",
+        "date": "2023-10-10"
+      },
+      {
+        "name": "Hackathon",
+        "date": "2023-12-05"
+      }
+    ],
+    "research_history": "Tech Innovators Institute has a rich history of contributions to computer science, artificial intelligence, and cybersecurity.",
+    "sports_field": "The college features a cutting-edge sports complex with facilities for e-sports, traditional sports, and fitness programs."
+  },
+  {
+    "id": 3,
+    "name": "Arizona state University",
+    "image": "https://example.com/tech_innovators_image.jpg",
+    "admission_dates": {
+      "fall": "2023-09-01",
+      "spring": "2024-02-01"
+    },
+    "events": [
+      {
+        "name": "Tech Expo",
+        "date": "2023-10-10"
+      },
+      {
+        "name": "Hackathon",
+        "date": "2023-12-05"
+      }
+    ],
+    "research_history": "Arizona State University has a rich history of contributions to computer science, artificial intelligence, and cybersecurity.",
+    "sports_field": "The college features a cutting-edge sports complex with facilities for e-sports, traditional sports, and fitness programs."
+  },
+  {
+    "name": "Tech Innovators Institute",
+    "image": "https://example.com/tech_innovators_image.jpg",
+    "admission_dates": {
+      "fall": "2023-09-01",
+      "spring": "2024-02-01"
+    },
+    "events": [
+      {
+        "name": "Tech Expo",
+        "date": "2023-10-10"
+      },
+      {
+        "name": "Hackathon",
+        "date": "2023-12-05"
+      }
+    ],
+    "research_history": "Tech Innovators Institute has a rich history of contributions to computer science, artificial intelligence, and cybersecurity.",
+    "sports_field": "The college features a cutting-edge sports complex with facilities for e-sports, traditional sports, and fitness programs."
+  }
+]
