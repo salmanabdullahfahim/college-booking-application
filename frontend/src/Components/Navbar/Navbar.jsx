@@ -1,6 +1,7 @@
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const menuItems = [
   {
@@ -23,6 +24,15 @@ const menuItems = [
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+      .then()
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -51,14 +61,35 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
-        <div className="hidden lg:block">
-          <Link
-            to="/login"
-            type="button"
-            className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-          >
-            Login
-          </Link>
+        <div className="flex gap-2 invisible sm:visible">
+          {user ? (
+            <div className="flex items-center gap-2">
+              {user.photoURL && (
+                <img
+                  className="h-12 rounded-full mt-3 border-2 mt border-primary cursor-pointer"
+                  src={user?.photoURL}
+                  alt=""
+                  title={user?.displayName}
+                />
+              )}
+
+              <button
+                onClick={handleLogout}
+                type="button"
+                className="mt-4 w-full rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link
+              to="/login"
+              type="button"
+              className="mt-4 w-full flex items-center rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            >
+              Login
+            </Link>
+          )}
         </div>
         <div className="lg:hidden">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
@@ -97,12 +128,34 @@ const Navbar = () => {
                     ))}
                   </nav>
                 </div>
-                <button
-                  type="button"
-                  className="mt-4 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  Login
-                </button>
+                {user ? (
+                  <>
+                    {user.photoURL && (
+                      <img
+                        className="h-12 rounded-full border-2  border-white cursor-pointer"
+                        src={user?.photoURL}
+                        alt=""
+                        title={user?.displayName}
+                      />
+                    )}
+
+                    <button
+                      onClick={handleLogout}
+                      type="button"
+                      className="mt-4 w-full rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                    >
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <Link
+                    to="/login"
+                    type="button"
+                    className="mt-4 w-full flex items-center rounded-md bg-[#6674cc] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#6674cc]/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                  >
+                    Login
+                  </Link>
+                )}
               </div>
             </div>
           </div>
