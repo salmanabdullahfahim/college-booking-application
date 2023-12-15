@@ -54,12 +54,10 @@
     "sports_field": "Basketball, Handball"
   },
   {
-    "name": "Tech Innovators Institute",
-    "image": "https://example.com/tech_innovators_image.jpg",
-    "admission_dates": {
-      "fall": "2023-09-01",
-      "spring": "2024-02-01"
-    },
+    "id": 4,
+    "name": "University of London",
+    "image": "https://i0.wp.com/academy.help.edu.my/wp-content/uploads/2020/11/UOLProgrammes_Banner.jpg?fit=1250%2C670&ssl=1",
+    "admission_dates": "2024-02-01",
     "events": [
       {
         "name": "Tech Expo",
@@ -68,9 +66,13 @@
       {
         "name": "Hackathon",
         "date": "2023-12-05"
+      },
+      {
+        "name": "AI",
+        "date": "2023-12-06"
       }
     ],
-    "research_history": "Tech Innovators Institute has a rich history of contributions to computer science, artificial intelligence, and cybersecurity.",
-    "sports_field": "Kabddi, Taekwando"
+    "research_history": "University of London has a rich history of contributions to computer science, artificial intelligence, and cybersecurity.",
+    "sports_field": "Baseball, Carrom"
   }
 ]

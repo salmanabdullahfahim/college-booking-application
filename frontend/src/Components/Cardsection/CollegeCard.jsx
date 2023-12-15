@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowUpRight } from "lucide-react";
 
 const CollegeCard = ({ college }) => {
+  console.log(college);
   const {
     name,
     image,
@@ -9,7 +10,7 @@ const CollegeCard = ({ college }) => {
     events,
     research_history,
     sports_field,
-  } = college;
+  } = college || "";
   return (
     <div className="w-[300px] rounded-md border">
       <img
