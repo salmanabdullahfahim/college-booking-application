@@ -3,14 +3,56 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
 
 export const Register = () => {
-  const { signInWithGoogle } = useContext(AuthContext);
+  const { signInWithGoogle, createUser, logOut } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location.state?.from.pathname || "/";
+
+  const handleRegister = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+
+    createUser(email, password)
+      .then((result) => {
+        const registerUser = result.user;
+        console.log(registerUser);
+
+        updateUser(registerUser, name, photo);
+
+        form.reset();
+        logOut()
+          .then(() => {})
+          .catch((error) => toast.error(error.message));
+
+        toast.success("User has been created successfully!");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.message);
+      });
+  };
+
+  const updateUser = (user, name, photo) => {
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photo,
+    })
+      .then(() => {})
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   const handleGoogleSignIn = () => {
     signInWithGoogle()
@@ -42,7 +84,7 @@ export const Register = () => {
                 Sign In
               </Link>
             </p>
-            <form action="#" method="POST" className="mt-8">
+            <form onSubmit={handleRegister} className="mt-8">
               <div className="space-y-5">
                 <div>
                   <label
@@ -58,9 +100,11 @@ export const Register = () => {
                       type="text"
                       placeholder="Full Name"
                       id="name"
+                      name="name"
                     ></input>
                   </div>
                 </div>
+
                 <div>
                   <label
                     htmlFor="email"
@@ -75,9 +119,28 @@ export const Register = () => {
                       type="email"
                       placeholder="Email"
                       id="email"
+                      name="email"
                     ></input>
                   </div>
                 </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="text-base font-medium text-gray-900"
+                  >
+                    {" "}
+                    Photo URL{" "}
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                      type="url"
+                      placeholder="Photo url"
+                      name="photo"
+                    ></input>
+                  </div>
+                </div>
+
                 <div>
                   <div className="flex items-center justify-between">
                     <label
@@ -94,12 +157,13 @@ export const Register = () => {
                       type="password"
                       placeholder="Password"
                       id="password"
+                      name="password"
                     ></input>
                   </div>
                 </div>
                 <div>
                   <button
-                    type="button"
+                    type="submit"
                     className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                   >
                     Create Account <ArrowRight className="ml-2" size={16} />
