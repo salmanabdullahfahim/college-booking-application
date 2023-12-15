@@ -31,9 +31,11 @@ const Navbar = () => {
     <div className="relative w-full bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <div className="inline-flex items-center space-x-2">
-          <span className="font-bold text-2xl italic">
-            <span className="text-violet-700 text-3xl">College</span> Hunter
-          </span>
+          <Link to="/">
+            <span className="font-bold text-2xl italic">
+              <span className="text-violet-700 text-3xl">College</span> Hunter
+            </span>
+          </Link>
         </div>
         <div className="hidden lg:block">
           <ul className="inline-flex space-x-8">
