@@ -1,7 +1,7 @@
 const PhotoGallery = () => {
   return (
     <div className="py-12">
-      <h2 className="text-center text-2xl font-bold italic py-4">
+      <h2 className="text-center text-3xl font-bold italic py-4">
         Photo Gallery
       </h2>
 
