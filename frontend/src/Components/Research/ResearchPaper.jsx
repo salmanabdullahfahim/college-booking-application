@@ -29,7 +29,7 @@ const ResearchPaper = () => {
       <h2 className="text-center text-3xl font-bold italic py-4">
         Research Paper
       </h2>
-      <div className="flex flex-col md:flex-row justify-center gap-6 mx-auto">
+      <div className="mx-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 my-4">
         {researches.map((research) => (
           <div key={research.name}>
             <div className="relative h-[400px] w-[300px] rounded-lg">

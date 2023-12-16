@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import CollegeCard from "./CollegeCard";
+
+import AdmissionCard from "./AdmissionCard";
 import { ScaleLoader } from "react-spinners";
 
-const CollegeCardSection = () => {
+const Admission = () => {
   const [colleges, setColleges] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -15,11 +16,10 @@ const CollegeCardSection = () => {
         setLoading(false);
       });
   }, []);
-  // Slice the first three colleges
-  const firstThreeColleges = colleges.slice(0, 3);
+
   return (
     <section>
-      <h2 className="text-3xl italic font-bold text-center">Colleges</h2>
+      <h2 className="text-3xl italic font-bold text-center my-8">Admission</h2>
 
       {loading ? (
         <div className="flex justify-center items-center h-32">
@@ -28,9 +28,9 @@ const CollegeCardSection = () => {
           </div>
         </div>
       ) : (
-        <div className="mx-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 my-4">
-          {firstThreeColleges?.map((college) => (
-            <CollegeCard college={college} key={college?._id}></CollegeCard>
+        <div className="mx-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 my-4">
+          {colleges?.map((college) => (
+            <AdmissionCard college={college} key={college?.id}></AdmissionCard>
           ))}
         </div>
       )}
@@ -38,4 +38,4 @@ const CollegeCardSection = () => {
   );
 };
 
-export default CollegeCardSection;
+export default Admission;
