@@ -34,7 +34,7 @@ const Hero = () => {
         </div>
         <div className="relative lg:col-span-5 lg:-mr-8 xl:col-span-6">
           <img
-            className="aspect-[3/2] bg-gray-50 object-cover lg:aspect-[4/3] lg:h-[450px] xl:aspect-[16/9] w-11/12 rounded-lg mr-3 mt-5"
+            className="aspect-[3/2] bg-gray-50 object-cover lg:aspect-[4/3] lg:h-[450px] xl:aspect-[16/9] w-11/12 mx-auto rounded-lg md:mr-3 mt-5"
             src="https://images.unsplash.com/photo-1604136514790-b27086f6c36e?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
           />

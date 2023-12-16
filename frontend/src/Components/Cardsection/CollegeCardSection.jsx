@@ -19,7 +19,7 @@ const CollegeCardSection = () => {
   const firstThreeColleges = colleges.slice(0, 3);
   return (
     <section>
-      <h2 className="text-3xl italic font-bold text-center">Colleges</h2>
+      <h2 className="text-3xl italic font-bold text-center mt-6">Colleges</h2>
 
       {loading ? (
         <div className="flex justify-center items-center h-32">
@@ -28,7 +28,7 @@ const CollegeCardSection = () => {
           </div>
         </div>
       ) : (
-        <div className="mx-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 my-4">
+        <div className="mx-14 md:mx-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 my-4">
           {firstThreeColleges?.map((college) => (
             <CollegeCard college={college} key={college?._id}></CollegeCard>
           ))}
