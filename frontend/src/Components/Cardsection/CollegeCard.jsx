@@ -1,16 +1,18 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CollegeCard = ({ college }) => {
-  console.log(college);
   const {
+    _id,
     name,
     image,
     admission_dates,
     events,
     research_history,
     sports_field,
-  } = college || "";
+  } = college;
+  console.log(college);
   return (
     <div className="w-[300px] rounded-md border">
       <img
@@ -36,12 +38,14 @@ const CollegeCard = ({ college }) => {
             Research: {research_history}
           </span>
         </div>
-        <button
-          type="button"
-          className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-        >
-          Details
-        </button>
+        <Link to={`/colleges/${_id}`}>
+          <button
+            type="button"
+            className="mt-4 w-full rounded-sm bg-black px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            Details
+          </button>
+        </Link>
       </div>
     </div>
   );

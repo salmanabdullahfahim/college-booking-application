@@ -5,7 +5,7 @@ const CollegeContainer = () => {
   const [colleges, setColleges] = useState([]);
 
   useEffect(() => {
-    fetch("/college.json")
+    fetch("http://localhost:5001/colleges")
       .then((res) => res.json())
       .then((data) => setColleges(data));
   }, []);

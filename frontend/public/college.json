@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "name": "University of Washington",
     "image": "https://marcomm.wustl.edu/app/uploads/2019/03/brookings-winter.jpg",
     "admission_dates": "2024-02-01",
@@ -18,7 +17,6 @@
     "sports_field": "Cricket, Football"
   },
   {
-    "id": 2,
     "name": "Tech Innovators Institute",
     "image": "https://media.istockphoto.com/id/1164035317/photo/cherry-blossoms-in-the-quad-university-of-washington-campus.webp?b=1&s=170667a&w=0&k=20&c=VB7OLhox7-jSRBGydzXFip00N7BycDVDHR3HSdDU448=",
     "admission_dates": "2024-02-01",
@@ -36,7 +34,6 @@
     "sports_field": "Baseball, Hockey"
   },
   {
-    "id": 3,
     "name": "Arizona state University",
     "image": "https://galined.com/wp-content/uploads/2022/04/ASU.jpg",
     "admission_dates": "2024-02-01",
@@ -54,7 +51,6 @@
     "sports_field": "Basketball, Handball"
   },
   {
-    "id": 4,
     "name": "University of London",
     "image": "https://i0.wp.com/academy.help.edu.my/wp-content/uploads/2020/11/UOLProgrammes_Banner.jpg?fit=1250%2C670&ssl=1",
     "admission_dates": "2024-02-01",
