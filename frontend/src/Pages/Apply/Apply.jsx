@@ -34,7 +34,7 @@ const Apply = () => {
       college,
     };
 
-    fetch("http://localhost:5001/admission", {
+    fetch("https://college-booking-app.vercel.app/admission", {
       method: "POST",
       headers: {
         "content-type": "application/json",

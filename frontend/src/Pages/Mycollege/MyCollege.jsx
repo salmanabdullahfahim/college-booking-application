@@ -8,7 +8,7 @@ const MyCollege = () => {
   const [colleges, setColleges] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
-  const url = `http://localhost:5001/myCollege?email=${user?.email}`;
+  const url = `https://college-booking-app.vercel.app/myCollege?email=${user?.email}`;
 
   useEffect(() => {
     setIsLoading(true);
