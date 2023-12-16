@@ -6,6 +6,7 @@ import { Register } from "../Pages/Register/Register";
 import { ErrorElement } from "../Components/Error/ErrorElement";
 import CollegeContainer from "../Pages/College/CollegeContainer";
 import SingleCollege from "../Components/Cardsection/SingleCollege";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/colleges/:id",
-        element: <SingleCollege />,
+        element: (
+          <PrivateRoutes>
+            <SingleCollege />
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5001/colleges/${params.id}`),
       },
