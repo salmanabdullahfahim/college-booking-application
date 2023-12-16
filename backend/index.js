@@ -62,31 +62,19 @@ async function run() {
 
     //filter by specific email
 
-    // app.get("/myToys", async (req, res) => {
-    //   let query = {};
+    app.get("/myCollege", async (req, res) => {
+      let query = {};
 
-    //   if (req.query?.email) {
-    //     query = {
-    //       sellerEmail: req.query.email,
-    //     };
-    //   }
+      if (req.query?.email) {
+        query = {
+          email: req.query.email,
+        };
+      }
 
-    //   const sortOption = req.query.sort;
-    //   let sortQuery = {};
+      const result = await admissionCollection.find(query).toArray();
 
-    //   if (sortOption === "asc") {
-    //     sortQuery = { price: 1 }; // Sort by price in ascending order
-    //   } else if (sortOption === "desc") {
-    //     sortQuery = { price: -1 }; // Sort by price in descending order
-    //   }
-
-    //   const result = await toyCollection
-    //     .find(query)
-    //     .sort(sortQuery)
-    //     .collation({ locale: "en_US", numericOrdering: true })
-    //     .toArray();
-    //   res.send(result);
-    // });
+      res.send(result);
+    });
 
     //post
 
