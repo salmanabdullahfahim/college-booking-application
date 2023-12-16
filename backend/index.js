@@ -77,16 +77,6 @@ async function run() {
       res.send(result);
     });
 
-    //filter by category
-
-    // app.get("/CategoryToys/:category", async (req, res) => {
-    //   const subCategory = req.params.category;
-    //   const result = await toyCollection
-    //     .find({ category: subCategory })
-    //     .toArray();
-    //   res.send(result);
-    // });
-
     //filter by specific email
 
     // app.get("/myToys", async (req, res) => {
@@ -137,15 +127,6 @@ async function run() {
     //     },
     //   };
     //   const result = await toyCollection.updateOne(filter, updatedToy);
-    //   res.send(result);
-    // });
-
-    //delete
-
-    // app.delete("/toys/:id", async (req, res) => {
-    //   const id = req.params.id;
-    //   const query = { _id: new ObjectId(id) };
-    //   const result = await toyCollection.deleteOne(query);
     //   res.send(result);
     // });
 
