@@ -9,6 +9,7 @@ import SingleCollege from "../Components/Cardsection/SingleCollege";
 import PrivateRoutes from "./PrivateRoutes";
 import Admission from "../Pages/Admisssion/Admission";
 import Apply from "../Pages/Apply/Apply";
+import MyCollege from "../Pages/Mycollege/MyCollege";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,14 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`https://college-booking-app.vercel.app/colleges/${params.id}`),
+      },
+      {
+        path: "/myCollege",
+        element: (
+          <PrivateRoutes>
+            <MyCollege />
+          </PrivateRoutes>
+        ),
       },
     ],
   },

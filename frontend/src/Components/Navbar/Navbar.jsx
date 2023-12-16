@@ -3,26 +3,21 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
-const menuItems = [
-  {
-    name: "Home",
-    to: "/",
-  },
-  {
-    name: "Colleges",
-    to: "/colleges",
-  },
-  {
-    name: "Admission",
-    to: "/admission",
-  },
-  {
-    name: "My College",
-    to: "/myCollege",
-  },
-];
-
 const Navbar = () => {
+  const menuItems = [
+    {
+      name: "Home",
+      to: "/",
+    },
+    {
+      name: "Colleges",
+      to: "/colleges",
+    },
+    {
+      name: "Admission",
+      to: "/admission",
+    },
+  ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
@@ -33,6 +28,12 @@ const Navbar = () => {
         console.error(error);
       });
   };
+  if (user) {
+    menuItems.push({
+      name: "My College",
+      to: "/myCollege",
+    });
+  }
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
