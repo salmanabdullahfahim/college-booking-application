@@ -5,7 +5,7 @@ const CollegeCardSection = () => {
   const [colleges, setColleges] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5001/colleges")
+    fetch("https://college-booking-app.vercel.app/colleges")
       .then((res) => res.json())
       .then((data) => setColleges(data));
   }, []);

@@ -38,7 +38,7 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5001/colleges/${params.id}`),
+          fetch(`https://college-booking-app.vercel.app/colleges/${params.id}`),
       },
     ],
   },
