@@ -51,7 +51,7 @@ async function run() {
       res.send(result);
     });
 
-    //filter by id
+    //filter by id-
 
     app.get("/colleges/:id", async (req, res) => {
       const id = req.params.id;
