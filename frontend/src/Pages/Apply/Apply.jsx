@@ -1,12 +1,61 @@
 // src/Form.js
 import React, { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { useLoaderData } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Apply = () => {
   const { user } = useContext(AuthContext);
+
+  const College = useLoaderData();
+
+  const { _id, name } = College;
+
+  const handleAdmission = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const image = form.image.value;
+    const subject = form.subject.value;
+    const phone = form.phone.value;
+    const address = form.address.value;
+    const date = form.date.value;
+    const college = form.college.value;
+
+    const admissionData = {
+      name,
+      image,
+      subject,
+      email,
+      phone,
+      address,
+      date,
+      college,
+    };
+
+    fetch("http://localhost:5001/admission", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(admissionData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          toast.success("Application successful!!");
+          form.reset();
+        }
+      });
+  };
   return (
     <div className="container mx-auto mt-8 p-4">
-      <form className="max-w-md mx-auto bg-white p-8 rounded shadow-md">
+      <form
+        onSubmit={handleAdmission}
+        className="max-w-md mx-auto bg-white p-8 rounded shadow-md"
+      >
         <h2 className="text-2xl font-semibold mb-4">Candidate Information</h2>
 
         <div className="mb-4">
@@ -22,6 +71,7 @@ const Apply = () => {
             type="text"
             value={user.displayName}
             placeholder="Enter candidate name"
+            name="name"
           />
         </div>
 
@@ -37,6 +87,24 @@ const Apply = () => {
             id="subject"
             type="text"
             placeholder="Enter subject"
+            name="subject"
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="subject"
+          >
+            College
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="college"
+            type="text"
+            placeholder="Enter College"
+            value={name}
+            readOnly
+            name="college"
           />
         </div>
 
@@ -54,6 +122,7 @@ const Apply = () => {
             value={user.email}
             readOnly
             placeholder="Enter candidate email"
+            name="email"
           />
         </div>
 
@@ -69,6 +138,7 @@ const Apply = () => {
             id="candidatePhone"
             type="tel"
             placeholder="Enter phone number"
+            name="phone"
           />
         </div>
 
@@ -83,6 +153,7 @@ const Apply = () => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="address"
             placeholder="Enter address"
+            name="address"
           ></textarea>
         </div>
 
@@ -97,6 +168,7 @@ const Apply = () => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="dob"
             type="date"
+            name="date"
           />
         </div>
 
@@ -111,6 +183,7 @@ const Apply = () => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="image"
             type="text"
+            name="image"
           />
         </div>
 

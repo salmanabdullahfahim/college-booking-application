@@ -34,20 +34,15 @@ async function run() {
       }
     });
 
-    //ToyCollection
+    //College Collection
 
     const collegeCollection = client
       .db("collegeHunterDB")
       .collection("colleges");
 
-    //indexing
-
-    // const indexKey = { toyName: 1 };
-    // const indexOption = { name: "nameSearch" };
-
-    // const result = await toyCollection.createIndex(indexKey, indexOption);
-
-    // All toys
+    const admissionCollection = client
+      .db("collegeHunterDB")
+      .collection("admission");
 
     app.get("/colleges", async (req, res) => {
       const limit = parseInt(req.query.limit);
@@ -55,18 +50,6 @@ async function run() {
       const result = await collegeCollection.find().limit(limit).toArray();
       res.send(result);
     });
-
-    // search toy by name
-
-    // app.get("/toySearchByName/:text", async (req, res) => {
-    //   const searchText = req.params.text;
-
-    //   const result = await toyCollection
-    //     .find({ toyName: { $regex: searchText, $options: "i" } })
-    //     .toArray();
-
-    //   res.send(result);
-    // });
 
     //filter by id
 
@@ -107,28 +90,11 @@ async function run() {
 
     //post
 
-    // app.post("/toys", async (req, res) => {
-    //   const toy = req.body;
-    //   const result = await toyCollection.insertOne(toy);
-    //   res.send(result);
-    // });
-
-    //update
-
-    // app.patch("/updateToy/:id", async (req, res) => {
-    //   const id = req.params.id;
-    //   const filter = { _id: new ObjectId(id) };
-    //   const toyInfo = req.body;
-    //   const updatedToy = {
-    //     $set: {
-    //       price: toyInfo.price,
-    //       availableQuantity: toyInfo.availableQuantity,
-    //       details: toyInfo.details,
-    //     },
-    //   };
-    //   const result = await toyCollection.updateOne(filter, updatedToy);
-    //   res.send(result);
-    // });
+    app.post("/admission", async (req, res) => {
+      const toy = req.body;
+      const result = await admissionCollection.insertOne(toy);
+      res.send(result);
+    });
 
     await client.db("admin").command({ ping: 1 });
     console.log(

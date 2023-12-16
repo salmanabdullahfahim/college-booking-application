@@ -16,7 +16,6 @@ const SingleCollege = () => {
     rating,
   } = college;
 
-  console.log(college);
   return (
     <div className="flex  flex-col items-center rounded-md border my-6 ">
       <div className="h-full w-11/12 md:h-[400px] p-4">
